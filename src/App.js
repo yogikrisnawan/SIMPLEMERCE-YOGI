@@ -8,6 +8,7 @@ import MainRouter from './router/MainRouter';
 
 const App = () => {
    return (
+      // Semua navigasi harus di wrap oleh NavigationContainer
       <NavigationContainer>
          <MainRouter/>
       </NavigationContainer>
