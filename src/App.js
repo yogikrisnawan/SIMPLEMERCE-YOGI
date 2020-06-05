@@ -3,6 +3,10 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import {NavigationContainer} from '@react-navigation/native'
 
+// Redux
+import { Provider } from 'react-redux';
+import store from './redux'
+
 // Router
 import MainRouter from './router/MainRouter';
 import AuthRouter from './router/AuthRouter';
@@ -10,10 +14,11 @@ import AuthRouter from './router/AuthRouter';
 
 const App = () => {
    return (
-      // Semua navigasi harus di wrap oleh NavigationContainer
-      <NavigationContainer>
-         <AuthRouter/>
-      </NavigationContainer>
+      <Provider store={store} >
+         <NavigationContainer>
+            <AuthRouter/>
+         </NavigationContainer>
+      </Provider>
    )
 }
 
