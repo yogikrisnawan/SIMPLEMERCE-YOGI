@@ -23,17 +23,17 @@ const MainRouter = () => {
                // dalam case ini adalah component Icon dari rect-vector-icons
                // untuk mengetahui secara pasti kode icon yang dapat digunakan dapat melihat ke salah satu file json yang ada di alamat berikut:
                // alamat ./node_modules/react-native-vector-icons/gylphmaps
-               tabBarIcon: () => {return <Icon name="home-variant" size={30} />}
+               tabBarIcon: () => {return <Icon name="home-variant" size={27} />}
             }}
          />
          <MainTab.Screen name="Add" component={Add}
             options={{
-               tabBarIcon: () => {return <Icon name="tooltip-plus" size={30} />}
+               tabBarIcon: () => {return <Icon name="tooltip-plus" size={27} />}
             }}
          />
          <MainTab.Screen name="Account" component={Account}
             options={{
-               tabBarIcon: () => {return <Icon name="account-box" size={30} />}
+               tabBarIcon: () => {return <Icon name="account-box" size={27} />}
             }}
          />
       </MainTab.Navigator>
