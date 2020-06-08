@@ -8,15 +8,14 @@ import { Provider } from 'react-redux';
 import store from './redux'
 
 // Router
-import MainRouter from './router/MainRouter';
-import AuthRouter from './router/AuthRouter';
+import InitRouter from './router/InitRouter'
 
 
 const App = () => {
    return (
       <Provider store={store} >
          <NavigationContainer>
-            <AuthRouter/>
+            <InitRouter/>
          </NavigationContainer>
       </Provider>
    )
