@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux';
-import { TouchableOpacity, StyleSheet, Text } from 'react-native'
+import { TouchableOpacity, StyleSheet, Text, Alert } from 'react-native'
 import { Container, Header, Content, Form, Item, Input, Label} from 'native-base';
+import axios from '../../config/api'
+import { login } from '../../redux/actions'
 
 const SignIn = ({navigation}) => {
 
@@ -11,11 +13,24 @@ const SignIn = ({navigation}) => {
    const dispatch = useDispatch()
 
    const onSignIn = () => {
-      // send to reducer
-      dispatch({
-         type: 'LOGIN',
-         payload: username
-      })
+      const data = {username, password}
+      axios.post('/user/login', data)
+         // res.data = {username, token}
+         .then(res => {
+            // hasil = {type: 'LOGIN', payload: {username, token} }
+            const hasil = login(res.data)
+            dispatch(hasil)
+         })
+         .catch(err => {
+            if(err.response.data.message){
+               Alert.alert("", `${err.response.data.message}`)
+            } else {
+               console.log({err})
+               Alert.alert("Snap!", "Something is wrong, check console")
+            }
+            
+         })
+
    }
 
    return (
@@ -29,7 +44,7 @@ const SignIn = ({navigation}) => {
             </Item>
             <Item stackedLabel last>
                <Label>Password</Label>
-               <Input value={password} onChangeText={(text) => setPassword(text)} />
+               <Input secureTextEntry value={password} onChangeText={(text) => setPassword(text)} />
             </Item>
             </Form>
             <TouchableOpacity style={styles.signBtn} onPress={onSignIn} >
