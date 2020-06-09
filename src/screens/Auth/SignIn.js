@@ -1,9 +1,13 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux';
-import { TouchableOpacity, StyleSheet, Text, Alert } from 'react-native'
-import { Container, Header, Content, Form, Item, Input, Label} from 'native-base';
+import { TouchableOpacity, StyleSheet, Alert } from 'react-native'
+import { 
+   Container, Header, Content, Form,
+   Item, Input, Label, Button, Text
+} from 'native-base';
 import axios from '../../config/api'
 import { login } from '../../redux/actions'
+import { btn, bg, sign, txtColor } from '../../styles'
 
 const SignIn = ({navigation}) => {
 
@@ -36,7 +40,7 @@ const SignIn = ({navigation}) => {
    return (
       <Container>
         <Content>
-           <Text style={styles.text} >Sign In</Text>
+           <Text style={[sign.title]} >Sign In</Text>
             <Form>
             <Item stackedLabel>
                <Label>Username</Label>
@@ -47,41 +51,15 @@ const SignIn = ({navigation}) => {
                <Input secureTextEntry value={password} onChangeText={(text) => setPassword(text)} />
             </Item>
             </Form>
-            <TouchableOpacity style={styles.signBtn} onPress={onSignIn} >
-               <Text style={styles.signText} >Sign In</Text>
-            </TouchableOpacity>
+            <Button block style={[btn, bg.purple]}  onPress={onSignIn} >
+               <Text style={[txtColor.white]}  >Sign In</Text>
+            </Button>
             <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
-               <Text style={styles.signUpText}>Don't have an account ?</Text>
+               <Text style={[sign.link]}>Don't have an account ?</Text>
             </TouchableOpacity>
          </Content>
       </Container>
    )
 }
-
-const styles = StyleSheet.create({
-   text: {
-      marginTop: 35,
-      fontSize: 25,
-      textAlign: 'center'
-   },
-   signBtn : {
-      backgroundColor: 'purple',
-      padding: 9,
-      margin: 5,
-      borderRadius: 5
-   },
-   signText: {
-      fontSize: 19,
-      color: 'white',
-      textAlign: 'center'
-   },
-   signUpText: {
-      marginTop: 5,
-      fontSize: 17,
-      color: 'blue',
-      textAlign: 'center'
-   }
-})
-
 
 export default SignIn

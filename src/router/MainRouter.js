@@ -14,7 +14,8 @@ import Account from '../screens/Account/Account'
 const MainRouter = () => {
    return (
       // container screen
-      <MainTab.Navigator>
+      // show label false untuk menghilangkan tulisan pada tab, tersisa hanya icon saja.
+      <MainTab.Navigator tabBarOptions={{showLabel: false}} >
          {/* urutan penulisan mempengaruhi */}
          <MainTab.Screen name="Feed" component={Feed}
             // Dapat mengganti icon tab menggunakan propery options
@@ -23,17 +24,34 @@ const MainRouter = () => {
                // dalam case ini adalah component Icon dari rect-vector-icons
                // untuk mengetahui secara pasti kode icon yang dapat digunakan dapat melihat ke salah satu file json yang ada di alamat berikut:
                // alamat ./node_modules/react-native-vector-icons/gylphmaps
-               tabBarIcon: () => {return <Icon name="home-variant" size={27} />}
+
+               // focused akan bernilai true jika kita sedang membuka screen ini
+               tabBarIcon: ({focused}) => {
+                  const iconName = focused ? 'animation' : 'animation-outline'
+                  return <Icon name={iconName} size={27} />
+               }
             }}
          />
          <MainTab.Screen name="Add" component={Add}
             options={{
-               tabBarIcon: () => {return <Icon name="tooltip-plus" size={27} />}
+               tabBarIcon: ({focused}) => {
+                  if(focused) {
+                     return <Icon name="tooltip-plus" size={27} />
+                  } else {
+                     return <Icon name="tooltip-plus-outline" size={27} />
+                  }
+               }
             }}
          />
          <MainTab.Screen name="Account" component={Account}
             options={{
-               tabBarIcon: () => {return <Icon name="account-box" size={27} />}
+               tabBarIcon: ({focused}) => {
+                  if(focused) {
+                     return <Icon name="account-box" size={27} />
+                  } else {
+                     return <Icon name="account-box-outline" size={27} />
+                  }
+               }
             }}
          />
       </MainTab.Navigator>
