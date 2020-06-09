@@ -10,7 +10,7 @@ export default ( state = init, action ) => {
          return {username : action.payload.username, token : action.payload.token}
 
       case 'LOGOUT':
-         
+         return init
    
       default:
          return state
