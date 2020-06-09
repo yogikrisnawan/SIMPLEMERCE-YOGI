@@ -9,13 +9,13 @@ const MainTab = createBottomTabNavigator()
 // screens
 import Feed from '../screens/Feed/Feed'
 import Add from '../screens/Add/Add'
-import Account from '../screens/Account/Account'
+import AccountTab from '../screens/Account/AccountTab'
 
 const MainRouter = () => {
    return (
       // container screen
       // show label false untuk menghilangkan tulisan pada tab, tersisa hanya icon saja.
-      <MainTab.Navigator tabBarOptions={{showLabel: false}} >
+      <MainTab.Navigator tabBarOptions={{showLabel: false}} initialRouteName="Feed" >
          {/* urutan penulisan mempengaruhi */}
          <MainTab.Screen name="Feed" component={Feed}
             // Dapat mengganti icon tab menggunakan propery options
@@ -27,6 +27,8 @@ const MainRouter = () => {
 
                // focused akan bernilai true jika kita sedang membuka screen ini
                tabBarIcon: ({focused}) => {
+                  // jika focused bernilai true, iconName = 'animation'
+                  // jika focused bernilai false, iconName = 'animation-outline'
                   const iconName = focused ? 'animation' : 'animation-outline'
                   return <Icon name={iconName} size={27} />
                }
@@ -35,15 +37,12 @@ const MainRouter = () => {
          <MainTab.Screen name="Add" component={Add}
             options={{
                tabBarIcon: ({focused}) => {
-                  if(focused) {
-                     return <Icon name="tooltip-plus" size={27} />
-                  } else {
-                     return <Icon name="tooltip-plus-outline" size={27} />
-                  }
+                  const iconName = focused ? 'tooltip-plus' : 'tooltip-plus-outline'
+                  return <Icon name={iconName} size={27} />
                }
             }}
          />
-         <MainTab.Screen name="Account" component={Account}
+         <MainTab.Screen name="AccountTab" component={AccountTab}
             options={{
                tabBarIcon: ({focused}) => {
                   if(focused) {
