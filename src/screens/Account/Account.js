@@ -22,6 +22,7 @@ const Account = ({navigation}) => {
    return (
       <View style={{flex: 1, justifyContent:'center', alignItems: 'center'}} >
          <Text style={{fontSize:30, fontWeight: 'bold'}} >Account Component</Text>
+         {/* Tampilkan foto avatar */}
          <Button block onPress={onSignOut} >
             <Text>Sign Out</Text>
          </Button>
@@ -31,5 +32,7 @@ const Account = ({navigation}) => {
 
 export default Account
 
-// hapus data di redux state
-// hapus data async storage
+// Tampilkan avatar di antara title dan tombol sign ouy
+// import { Image } from 'react-native'
+// useFocusEffect, useState
+// axios
