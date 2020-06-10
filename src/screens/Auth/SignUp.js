@@ -16,7 +16,9 @@ const SignOut = ({navigation}) => {
    const onSignUp = () => {
       const data = {username, name, email, password}
       axios.post('/user', data)
-         .then(res => Alert.alert("Success", `${res.data.message}`) )
+         .then(res => {
+            Alert.alert("Success", `${res.data.message}`)
+         } )
          .catch(err => console.log({err}))
    }
 

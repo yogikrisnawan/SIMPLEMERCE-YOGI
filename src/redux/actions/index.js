@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
 export const login = (data) => {
+   // data = {username, token}
    // save to storage
    // tidak perlu menunggu, dan tidak membutuhkan responnya, jadi tidak menggunakan .then / async await
    AsyncStorage.setItem("user", JSON.stringify(data))
