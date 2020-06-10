@@ -1,9 +1,13 @@
 import React, {useState, useCallback} from 'react'
-import { View, Image } from 'react-native'
+import { View, Image, Alert } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
-import {Button, Text} from 'native-base'
+import {
+   Button, Text, Container, Header, Content, ListItem,
+   Card, CardItem, Thumbnail, Left, Body, Right
+} from 'native-base'
 import { useDispatch, useSelector } from 'react-redux'
 import AsyncStorage from '@react-native-community/async-storage';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import axios from '../../config/api'
 
 const Account = ({navigation}) => {
@@ -11,7 +15,7 @@ const Account = ({navigation}) => {
    const token = useSelector(state => state.auth.token)
    const dispatch = useDispatch()
    const [avatarlink, setAvatarlink] = useState(null)
-   const [user, setUser] = useState(null)
+   const [user, setUser] = useState({})
 
    useFocusEffect(
       useCallback(() => {
@@ -39,15 +43,57 @@ const Account = ({navigation}) => {
    }
 
    return (
-      <View style={{flex: 1, justifyContent:'center', alignItems: 'center'}} >
-         <Text style={{fontSize:30, fontWeight: 'bold'}} >Account Component</Text>
-         <View >
-            <Image style={{width: 300, height: 300}} source={{uri : avatarlink}} />
-         </View>
-         <Button block onPress={onSignOut} >
-            <Text>Sign Out</Text>
-         </Button>
-      </View>
+      <Container style={{backgroundColor: '#e0d7e2' }} >
+        <Content>
+
+          <Card>
+            <CardItem>
+              <Left>
+                <Thumbnail source={{uri: avatarlink}} />
+                <Body>
+                  <Text>{user.name}</Text>
+                  <Text note>{user.email}</Text>
+                </Body>
+              </Left>
+               <Icon size={25} name="dots-horizontal" onPress={() => navigation.openDrawer()} />
+            </CardItem>
+          </Card>
+
+          <Card style={{marginTop: 20}} >
+          <ListItem icon onPress={() => Alert.alert("", "List")}>
+            <Left>
+              <Button style={{ backgroundColor: "#7bb9fc" }}>
+                <Icon size={23} name="view-list" />
+              </Button>
+            </Left>
+            <Body>
+              <Text>Products</Text>
+            </Body>
+          </ListItem>
+          <ListItem icon onPress={() => Alert.alert("", "List")}>
+            <Left>
+              <Button style={{ backgroundColor: "#8af96b" }}>
+                <Icon size={23} name="cart-outline" />
+              </Button>
+            </Left>
+            <Body>
+              <Text>Transaction</Text>
+            </Body>
+          </ListItem>
+          <ListItem icon onPress={() => Alert.alert("", "List")}>
+            <Left>
+              <Button style={{ backgroundColor: "#f96b6d" }}>
+                <Icon size={23} name="logout" />
+              </Button>
+            </Left>
+            <Body>
+              <Text>Sign Out</Text>
+            </Body>
+          </ListItem>
+          </Card>
+
+        </Content>
+      </Container>
    )
 }
 
