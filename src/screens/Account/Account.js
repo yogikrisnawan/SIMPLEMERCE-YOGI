@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import AsyncStorage from '@react-native-community/async-storage';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import axios from '../../config/api'
+import { btn, bg } from '../../styles'
 
 const Account = ({navigation}) => {
 
@@ -57,6 +58,9 @@ const Account = ({navigation}) => {
               </Left>
                <Icon size={25} name="dots-horizontal" onPress={() => navigation.openDrawer()} />
             </CardItem>
+            <Button block style={[btn, bg.purplesoft, {height: 25}]} >
+               <Text>Edit Profile</Text>
+            </Button>
           </Card>
 
           <Card style={{marginTop: 20}} >
