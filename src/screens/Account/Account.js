@@ -58,7 +58,7 @@ const Account = ({navigation}) => {
               </Left>
                <Icon size={25} name="dots-horizontal" onPress={() => navigation.openDrawer()} />
             </CardItem>
-            <Button block style={[btn, bg.purplesoft, {height: 25}]} >
+            <Button block style={[btn, bg.purplesoft, {height: 25}]} onPress={() => navigation.navigate('EditAccount')} >
                <Text>Edit Profile</Text>
             </Button>
           </Card>
