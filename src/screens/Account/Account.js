@@ -25,12 +25,15 @@ const Account = ({navigation}) => {
             .then(res => {
                // res.data = {user, avatarlink}
                setUser(res.data.user)
-               setAvatarlink(res.data.avatarlink)
+               setAvatarlink(`${res.data.avatarlink}?unq=${new Date()}`)
+              //  http://localhost:2020/user/avatar/rochafi-avatar.png?unq=eRtyuop >> nord vpn
+              //  http://localhost:2020/user/avatar/rochafi-avatar.png?unq=plOishqwf >> gambar kucing
 
             })
             .catch(err =>console.log({err}))
-      })
+      }, [])
    )
+
 
    const onSignOut = () => {
 
