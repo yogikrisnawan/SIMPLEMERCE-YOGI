@@ -7,7 +7,7 @@ import EditAccount from './EditAccount';
 
 export default () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator  >
       <Stack.Screen name="Account" component={Account} />
       <Stack.Screen name="EditAccount" component={EditAccount} />
     </Stack.Navigator>

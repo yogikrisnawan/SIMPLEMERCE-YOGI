@@ -84,7 +84,7 @@ const Account = ({navigation}) => {
               <Text>Transaction</Text>
             </Body>
           </ListItem>
-          <ListItem icon onPress={() => Alert.alert("", "List")}>
+          <ListItem icon onPress={onSignOut}>
             <Left>
               <Button style={{ backgroundColor: "#f96b6d" }}>
                 <Icon size={23} name="logout" />
