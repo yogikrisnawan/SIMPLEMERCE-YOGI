@@ -9,10 +9,11 @@ import { btn, bg } from '../../styles'
 
 export default function EditAccount() {
 
-   const [source, setSource] = useState({})
+   const [source, setSource] = useState(null)
    // user = {name: "Rochafi Alvin" email: "rochafi@gmail.com"}
    const [user, setUser] = useState({})
    const token = useSelector(state => state.auth.token)
+   const [avatarlink, setAvatarlink] = useState(null)
 
    const onChangeName = (text) => { setUser((prevUser) => {return {...prevUser, name: text}}) }
    const onChangeEmail = (text) => { setUser((prevUser) => {return {...prevUser, email: text}}) }
@@ -25,6 +26,7 @@ export default function EditAccount() {
             .then(res => {
                // res.data = {user, avatarlink}
                setUser(res.data.user)
+               setAvatarlink(`${res.data.avatarlink}?unq=${new Date()}`)
             })
             .catch(err =>console.log({err}))
       }, [])
@@ -79,7 +81,11 @@ export default function EditAccount() {
         <Content>
             {/* Image */}
             <View style={styles.photo} > 
-               <Image style={styles.image} source={source} />
+               {
+                  source ? 
+                  <Image style={styles.image} source={source} /> : 
+                  <Image style={styles.image} source={{uri: avatarlink}} />
+               }
             </View>
 
             {/* Button choose dan save */}
