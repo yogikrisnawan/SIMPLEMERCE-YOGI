@@ -1,0 +1,21 @@
+Native base
+https://nativebase.io/
+
+React Redux
+https://react-redux.js.org/
+
+Async Storage
+https://react-native-community.github.io/async-storage/
+
+React Navigation
+https://reactnavigation.org/
+
+React Native Image Picker (Main)
+https://github.com/react-native-community/react-native-image-picker
+
+React Native Image Picker (Installation)
+https://github.com/react-native-community/react-native-image-picker/blob/master/docs/Install.md
+
+Axios issue (Can not post image to localhost api)
+https://github.com/facebook/react-native/issues/28551
+
