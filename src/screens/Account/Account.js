@@ -67,7 +67,7 @@ const Account = ({navigation}) => {
           </Card>
 
           <Card style={{marginTop: 20}} >
-          <ListItem icon onPress={() => Alert.alert("", "List")}>
+          <ListItem icon onPress={() => navigation.navigate("ListProduct")}>
             <Left>
               <Button style={{ backgroundColor: "#7bb9fc" }}>
                 <Icon size={23} name="view-list" />
