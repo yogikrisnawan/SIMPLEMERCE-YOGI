@@ -1,0 +1,9 @@
+16 / 06 / 2020
+
+React Native
+- Detail Product (yang akan di beli)
+- Add to cart
+- Read Cart
+
+API
+- Buat route untuk Read Carts
