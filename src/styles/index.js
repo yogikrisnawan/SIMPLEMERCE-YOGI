@@ -1,5 +1,9 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
+export const dim = {
+   fullWidth : Dimensions.get('window').width,
+   fullHeight : Dimensions.get('window').height
+}
 
 export const btn = StyleSheet.create({
    padding: 9,

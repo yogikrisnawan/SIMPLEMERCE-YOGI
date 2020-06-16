@@ -5,6 +5,8 @@ const Stack = createStackNavigator();
 import Account from './Account';
 import EditAccount from './EditAccount';
 import ListProduct from '../Products/ListProduct';
+import DetailProduct from '../Products/DetailProduct';
+
 
 
 export default () => {
@@ -13,6 +15,7 @@ export default () => {
       <Stack.Screen name="Account" component={Account} />
       <Stack.Screen name="EditAccount" component={EditAccount} />
       <Stack.Screen name="ListProduct" component={ListProduct} />
+      <Stack.Screen name="DetailProduct" component={DetailProduct} />
     </Stack.Navigator>
   );
 }

@@ -87,7 +87,7 @@ const Add = ({navigation}) => {
                   }} name="currency-usd" size={20} />
                </View>
                {/* priceInput */}
-               <Input style={[styles.priceInput]} placeholder="Hello" value={price} onChangeText={changePrice} />
+               <Input style={[styles.priceInput]} value={price} onChangeText={changePrice} />
             </View>
 
             <Text style={styles.label} >Description</Text>

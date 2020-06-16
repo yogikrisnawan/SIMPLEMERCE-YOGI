@@ -1,11 +1,11 @@
 import React, {useState, useCallback} from 'react'
-import { useFocusEffect } from '@react-navigation/native'
+import { useFocusEffect, NavigationHelpersContext } from '@react-navigation/native'
 import { View } from 'react-native'
 import { useSelector } from 'react-redux'
 import { Container, Header, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
 import axios from '../../config/api'
 
-export default function ListProduct() {
+export default function ListProduct({navigation}) {
 
    const token = useSelector(state => state.auth.token)
    const [products, setProducts] = useState([])
@@ -36,7 +36,7 @@ export default function ListProduct() {
                         <Text note numberOfLines={1}> {product.description} </Text>
                      </Body>
                      <Right>
-                        <Button onPress={() => console.log("Pindah ke detail")} transparent>
+                        <Button onPress={() => navigation.navigate("DetailProduct", {id: product.id}) } transparent>
                            <Text>View</Text>
                         </Button>
                      </Right>
