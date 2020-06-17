@@ -7,7 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 const MainTab = createBottomTabNavigator()
 
 // screens
-import Feed from '../screens/Feed/Feed'
+import FeedStack from '../screens/Feed/FeedStack'
 import Add from '../screens/Add/Add'
 import AccountTab from '../screens/Account/AccountTab'
 
@@ -17,7 +17,7 @@ const MainRouter = () => {
       // show label false untuk menghilangkan tulisan pada tab, tersisa hanya icon saja.
       <MainTab.Navigator tabBarOptions={{showLabel: false}} initialRouteName="Feed" >
          {/* urutan penulisan mempengaruhi */}
-         <MainTab.Screen name="Feed" component={Feed}
+         <MainTab.Screen name="FeedStack" component={FeedStack}
             // Dapat mengganti icon tab menggunakan propery options
             options={{
                // tanBarIcon menerima function yang harus me return sebuah component
