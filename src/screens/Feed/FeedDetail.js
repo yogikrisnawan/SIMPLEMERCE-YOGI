@@ -13,6 +13,7 @@ export default function FeedDetail({route}) {
 
    const token = useSelector(state => state.auth.token)
    const [product, setProduct] = useState({})
+   const [qty, setQty] = useState("")
 
    useFocusEffect(
       useCallback(() => {
@@ -22,6 +23,19 @@ export default function FeedDetail({route}) {
             .catch(err => console.log({err}))
       }, [])
    )
+
+   const onAddCart = () => {
+      const {id, name, price, picture, user_id} = product
+      const seller_id = user_id
+      const product_id = id
+      const total_amount = qty * price
+      const config = {headers: {Authorization : token}}
+      const data = {product_id, seller_id, name, qty, price, picture, total_amount}
+
+         axios.post(`/cart`, data,  config)
+            .then(res => console.log(res.data))
+            .catch(err => console.log({err}))
+   }
 
    return (
       <Container>
@@ -48,8 +62,8 @@ export default function FeedDetail({route}) {
             </View>
          </ScrollView>
          <View style={{height: 40, flexDirection: 'row', justifyContent: 'space-around'}} >
-            <TextInput placeholder="Input Qty" />
-            <Button style={[styles.btn, styles.btnDelete]} >
+            <TextInput placeholder="Input Qty" value={qty} onChangeText={text => setQty(text)} />
+            <Button style={[styles.btn, styles.btnDelete]} onPress={onAddCart} >
                <Text>Add</Text>
             </Button>
          </View>

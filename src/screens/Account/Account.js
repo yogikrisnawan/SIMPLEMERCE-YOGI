@@ -80,11 +80,21 @@ const Account = ({navigation}) => {
           <ListItem icon onPress={() => Alert.alert("", "List")}>
             <Left>
               <Button style={{ backgroundColor: "#8af96b" }}>
-                <Icon size={23} name="cart-outline" />
+                <Icon size={23} name="swap-horizontal" />
               </Button>
             </Left>
             <Body>
               <Text>Transaction</Text>
+            </Body>
+          </ListItem>
+          <ListItem icon onPress={() => navigation.navigate("Cart")}>
+            <Left>
+              <Button style={{ backgroundColor: "#f3fc7b" }}>
+                <Icon size={23} name="cart-outline" />
+              </Button>
+            </Left>
+            <Body>
+              <Text>Cart</Text>
             </Body>
           </ListItem>
           <ListItem icon onPress={onSignOut}>
