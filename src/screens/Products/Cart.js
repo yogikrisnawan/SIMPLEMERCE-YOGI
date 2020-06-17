@@ -19,6 +19,24 @@ export default function Cart({navigation}) {
       }, [])
    )
 
+   const onCheckout = () => {
+      let total_amount = 0
+
+      for(let cart of carts ){
+         // t_a = 70
+         total_amount += cart.total_amount
+      }
+
+      const config = {headers : {Authorization : token}}
+      const data = {
+         total_amount,
+         carts // array dua dimensi
+      }
+      axios.post('/transaction', data, config)
+            .then(res => console.log(res.data))
+            .catch(err => console.log({err}))
+   }
+
    return (
       <Container>
         <Content>
@@ -44,7 +62,7 @@ export default function Cart({navigation}) {
                ))
             }
           </List>
-          <Button style={{width: "60%", height: 35, alignSelf: "center",  borderWidth: 1, borderRadius: 3, borderColor: "green", backgroundColor: "white"}}  onPress={() => Alert.alert("Delete") } transparent>
+          <Button style={{width: "60%", height: 35, alignSelf: "center",  borderWidth: 1, borderRadius: 3, borderColor: "green", backgroundColor: "white"}}  onPress={ onCheckout } transparent>
             <Text style={{ color: "green", width: '100%', textAlign: "center" }} >Checkout</Text>
          </Button>
         </Content>

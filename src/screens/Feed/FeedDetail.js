@@ -25,8 +25,10 @@ export default function FeedDetail({route}) {
    )
 
    const onAddCart = () => {
+      // {id : 12, name : tamiya, price : 20, picture : kljm.png , user_id : 99}
       const {id, name, price, picture, user_id} = product
-      const seller_id = user_id
+      // id yang punya product
+      const seller_id = user_id // 99
       const product_id = id
       const total_amount = qty * price
       const config = {headers: {Authorization : token}}
