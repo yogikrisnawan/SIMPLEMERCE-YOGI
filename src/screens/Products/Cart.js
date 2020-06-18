@@ -22,16 +22,15 @@ export default function Cart({navigation}) {
    const onCheckout = () => {
       let total_amount = 0
 
+      // Menghitung total biaya
       for(let cart of carts ){
          // t_a = 70
          total_amount += cart.total_amount
       }
-
+      
+      
       const config = {headers : {Authorization : token}}
-      const data = {
-         total_amount,
-         carts // array dua dimensi
-      }
+      const data = { total_amount, carts }
       axios.post('/transaction', data, config)
             .then(res => console.log(res.data))
             .catch(err => console.log({err}))
