@@ -7,7 +7,7 @@ import EditAccount from './EditAccount';
 import ListProduct from '../Products/ListProduct';
 import DetailProduct from '../Products/DetailProduct';
 import Cart from '../Products/Cart';
-
+import TransactionsTabs from '../Products/TransactionsTabs'
 
 
 export default () => {
@@ -18,6 +18,7 @@ export default () => {
       <Stack.Screen name="ListProduct" component={ListProduct} />
       <Stack.Screen name="DetailProduct" component={DetailProduct} />
       <Stack.Screen name="Cart" component={Cart} />
+      <Stack.Screen name="TransactionsTabs" component={TransactionsTabs} />
     </Stack.Navigator>
   );
 }

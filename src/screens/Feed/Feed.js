@@ -8,7 +8,7 @@ import {
    Text, Button, Icon, Left, Body, Right
 } from 'native-base';
 
-const FeedProduct = ({item}) => (
+const FeedProduct = ({item,navigation}) => (
    
          <Card >
             <CardItem>
@@ -60,7 +60,7 @@ const Feed = ({navigation}) => {
             data={products}
             renderItem={({item}) => (
                <TouchableOpacity onPress={() => navigation.navigate("FeedDetail", {id : item.id})} >
-                  <FeedProduct item={item} />
+                  <FeedProduct item={item} navigation={navigation} />
                </TouchableOpacity>
             )}
             keyExtractor={item =>  item.id.toString()}

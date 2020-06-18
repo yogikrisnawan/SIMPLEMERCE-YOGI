@@ -77,7 +77,7 @@ const Account = ({navigation}) => {
               <Text>Products</Text>
             </Body>
           </ListItem>
-          <ListItem icon onPress={() => Alert.alert("", "List")}>
+          <ListItem icon onPress={() => navigation.navigate('TransactionsTabs')}>
             <Left>
               <Button style={{ backgroundColor: "#8af96b" }}>
                 <Icon size={23} name="swap-horizontal" />
